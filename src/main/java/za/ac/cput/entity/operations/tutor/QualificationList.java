@@ -6,8 +6,11 @@ package za.ac.cput.entity.operations.tutor;
  * Author: Justin Scott Jenecke
  */
 
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -16,11 +19,13 @@ public class QualificationList {
     @Id
     private int qListNo;
 
+    @OneToMany
     private Set<Qualification> qualifications;
 
     protected QualificationList() { }
 
-    public QualificationList(Builder b) {
+    private QualificationList(Builder b) {
+
         this.qListNo = b.qListNo;
         this.qualifications = b.qualifications;
     }

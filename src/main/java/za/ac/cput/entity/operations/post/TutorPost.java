@@ -19,7 +19,8 @@ public class TutorPost {
 
     protected TutorPost(){}
 
-    public TutorPost(Builder b) {
+    private TutorPost(Builder b) {
+
         this.tutorPostId = b.tutorPostId;
         this.tutorId = b.tutorId;
         this.postNo = b.postNo;

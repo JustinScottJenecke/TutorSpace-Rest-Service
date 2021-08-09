@@ -4,12 +4,14 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 /**
- * Entity concrete class for Qualification
+ * POJO for Qualification objects
  * Author: Justin Scott Jenecke
  */
 
+@Entity
 public class Qualification {
 
+    @Id
     private int qualNo;
     private int nqfLevel;
     private String institution, major;
@@ -17,6 +19,7 @@ public class Qualification {
     protected Qualification(){}
 
     public Qualification(Builder b) {
+
         this.qualNo = b.qualNo;
         this.nqfLevel = b.nqfLevel;
         this.institution = b.institution;

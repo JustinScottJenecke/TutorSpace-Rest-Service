@@ -20,7 +20,8 @@ public class Tutor {
 
     protected Tutor(){}
 
-    public Tutor(Builder b) {
+    private Tutor(Builder b) {
+
         this.tutorId = b.tutorId;
         this.tutorDetailsId = b.tutorDetailsId;
         this.qListNo = b.qListNo;

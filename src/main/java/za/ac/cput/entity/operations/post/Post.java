@@ -18,7 +18,8 @@ public class Post {
 
     protected Post(){}
 
-    public Post(Builder b) {
+    private Post(Builder b) {
+
         this.postNo = b.postNo;
         this.major = b.major;
         this.subject = b.subject;

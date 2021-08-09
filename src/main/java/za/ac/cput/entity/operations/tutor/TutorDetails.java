@@ -19,7 +19,8 @@ public class TutorDetails {
 
     protected TutorDetails(){}
 
-    public TutorDetails(Builder b) {
+    private TutorDetails(Builder b) {
+
         this.tutorDetailsId = b.tutorDetailsId;
         this.employmentType = b.employmentType;
         this.tutorType = b.tutorType;
