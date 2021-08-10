@@ -1,5 +1,5 @@
 package za.ac.cput.service.operations.tutor;
-/*
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import za.ac.cput.entity.operations.tutor.Qualification;
@@ -21,8 +21,11 @@ public class QualificationService {
         return this.qualificationRepository.findById(id).orElseGet(null);
     }
 
+    public void update(Qualification ql) {
+        this.qualificationRepository.save(ql);
+    }
+
     public void delete(int id) {
         this.qualificationRepository.deleteById(id);
     }
 }
-*/

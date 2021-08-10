@@ -19,6 +19,10 @@ public class TutorDetailsService {
         return this.tutorDetailsRepository.findById(id).orElseGet(null);
     }
 
+    public void update(TutorDetails td) {
+        this.tutorDetailsRepository.save(td);
+    }
+
     public void delete(int id) {
         this.tutorDetailsRepository.deleteById(id);
     }

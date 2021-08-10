@@ -26,10 +26,4 @@ public class QualificationListService {
         this.qualificationListRepository.deleteById(id);
     }
 
-    public void addQualification (Qualification newQualification, int id) {
-        QualificationList updateList = this.read(id);
-        updateList.getQualifications().add(newQualification);
-        this.update(updateList);
-
-    }
 }

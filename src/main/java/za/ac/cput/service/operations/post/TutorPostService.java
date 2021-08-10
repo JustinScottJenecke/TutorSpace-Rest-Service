@@ -19,6 +19,10 @@ public class TutorPostService {
         return this.tutorPostRepository.findById(id).orElseGet(null);
     }
 
+    public void update(TutorPost tutorPost) {
+        this.tutorPostRepository.save(tutorPost);
+    }
+
     public void delete(int id) {
         this.tutorPostRepository.deleteById(id);
     }

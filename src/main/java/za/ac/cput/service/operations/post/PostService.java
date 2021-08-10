@@ -19,6 +19,10 @@ public class PostService {
         return this.postRepository.findById(id).orElseGet(null);
     }
 
+    public void update(Post post) {
+        this.postRepository.save(post);
+    }
+
     public void delete(int id) {
         this.postRepository.deleteById(id);
     }
