@@ -1,7 +1,10 @@
 package za.ac.cput.entity.operations.tutor;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import java.util.Set;
 
 /**
  * Entity concrete class for Tutors
@@ -16,7 +19,9 @@ public class Tutor {
     private int tutorId;
 
     private int tutorDetailsId;
-    private int qListNo;
+
+    @OneToMany(mappedBy = "tutor", fetch = FetchType.EAGER)
+    private Set <Qualification> qualifications;
 
     protected Tutor(){}
 
@@ -24,7 +29,7 @@ public class Tutor {
 
         this.tutorId = b.tutorId;
         this.tutorDetailsId = b.tutorDetailsId;
-        this.qListNo = b.qListNo;
+        this.qualifications = b.qualifications;
     }
 
     public int getTutorId() {
@@ -35,8 +40,8 @@ public class Tutor {
         return tutorDetailsId;
     }
 
-    public int getqListNo() {
-        return qListNo;
+    public Set getQualifications() {
+        return qualifications;
     }
 
     @Override
@@ -44,7 +49,7 @@ public class Tutor {
         return "Tutor{" +
                 "tutorId=" + tutorId +
                 ", tutorDetails=" + tutorDetailsId +
-                ", qualificationList=" + qListNo +
+                ", qualificationList=" + qualifications +
                 '}';
     }
 
@@ -52,7 +57,7 @@ public class Tutor {
 
         private int tutorId;
         private int tutorDetailsId;
-        private int qListNo;
+        private Set <Qualification> qualifications;
 
         public Builder setTutorId(int tutorId) {
             this.tutorId = tutorId;
@@ -64,15 +69,15 @@ public class Tutor {
             return this;
         }
 
-        public Builder setqListNo(int qListNo) {
-            this.qListNo = qListNo;
+        public Builder setQualifications(Set qualifications) {
+            this.qualifications = qualifications;
             return this;
         }
 
         public Builder copy(Tutor t) {
             this.tutorId = t.tutorId;
             this.tutorDetailsId = t.tutorDetailsId;
-            this.qListNo = t.qListNo;
+            this.qualifications = t.qualifications;
             return this;
         }
 

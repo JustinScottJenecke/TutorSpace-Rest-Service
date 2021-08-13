@@ -1,6 +1,9 @@
 package za.ac.cput.factory.operations.tutor;
 
+import za.ac.cput.entity.operations.tutor.Qualification;
 import za.ac.cput.entity.operations.tutor.Tutor;
+
+import java.util.Set;
 
 /**
  * Factory class for creating Tutors
@@ -11,11 +14,11 @@ public class TutorFactory {
 
     public static Tutor createTutor(int tutorId,
                                     int tutorDetails,
-                                    int qListNo){
+                                    Set <Qualification> qualifications){
         Tutor tutor = new Tutor.Builder()
                 .setTutorId(tutorId)
                 .setTutorDetailsId(tutorDetails)
-                .setqListNo(qListNo)
+                .setQualifications(qualifications)
                 .build();
 
         return tutor;

@@ -2,7 +2,11 @@ package za.ac.cput.factoryTest.operations.tutor;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import za.ac.cput.entity.operations.tutor.Qualification;
 import za.ac.cput.entity.operations.tutor.Tutor;
+
+import java.util.HashSet;
+import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -13,8 +17,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class TutorFactoryTest {
 
+    Set <Qualification> qualificationSet;
+
     @BeforeEach
     void setUp() {
+        qualificationSet = new HashSet<>();
     }
 
     @Test
@@ -23,11 +30,12 @@ class TutorFactoryTest {
         Tutor tutor = new Tutor.Builder()
                 .setTutorId(101)
                 .setTutorDetailsId(201)
-                .setqListNo(301)
+                .setQualifications(qualificationSet)
                 .build();
 
         assertEquals(101, tutor.getTutorId());
         assertEquals(201, tutor.getTutorDetailsId());
-        assertEquals(301, tutor.getqListNo());
+        assertEquals(0, tutor.getQualifications().size());
+
     }
 }
