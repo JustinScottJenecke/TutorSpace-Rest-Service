@@ -9,7 +9,7 @@ import za.ac.cput.repository.operations.tutor.ITutorDetailsRepository;
 public class TutorDetailsService {
 
     @Autowired
-    ITutorDetailsRepository tutorDetailsRepository;
+    private ITutorDetailsRepository tutorDetailsRepository;
 
     public void create(TutorDetails td) {
         this.tutorDetailsRepository.save(td);

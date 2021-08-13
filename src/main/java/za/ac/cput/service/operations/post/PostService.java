@@ -9,7 +9,7 @@ import za.ac.cput.repository.operations.post.IPostRepository;
 public class PostService {
 
     @Autowired
-    IPostRepository postRepository;
+    private IPostRepository postRepository;
 
     public void create(Post post) {
         this.postRepository.save(post);

@@ -10,7 +10,7 @@ import za.ac.cput.repository.operations.tutor.IQualificationListRepository;
 public class QualificationListService {
 
     @Autowired
-    IQualificationListRepository qualificationListRepository;
+    private IQualificationListRepository qualificationListRepository;
 
     public void create(QualificationList ql) {
         this.qualificationListRepository.save(ql);

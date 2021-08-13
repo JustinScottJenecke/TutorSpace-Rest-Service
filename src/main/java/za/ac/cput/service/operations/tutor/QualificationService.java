@@ -11,7 +11,7 @@ import za.ac.cput.repository.operations.tutor.IQualificationRepository;
 public class QualificationService {
 
     @Autowired
-    IQualificationRepository qualificationRepository;
+    private IQualificationRepository qualificationRepository;
 
     public void create(Qualification ql) {
         this.qualificationRepository.save(ql);

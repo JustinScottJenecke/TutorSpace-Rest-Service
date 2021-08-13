@@ -6,10 +6,7 @@ package za.ac.cput.entity.operations.tutor;
  * Author: Justin Scott Jenecke
  */
 
-import javax.persistence.ElementCollection;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -19,7 +16,7 @@ public class QualificationList {
     @Id
     private int qListNo;
 
-    @OneToMany
+    @OneToMany(mappedBy = "qualification_list", fetch = FetchType.EAGER)
     private Set<Qualification> qualifications;
 
     protected QualificationList() { }
