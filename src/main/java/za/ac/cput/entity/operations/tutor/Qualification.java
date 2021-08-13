@@ -19,10 +19,6 @@ public class Qualification {
     private int nqfLevel;
     private String institution, major;
 
-    @ManyToOne
-    @JoinColumn(name = "q_list_no")
-    private QualificationList qualificationList;
-
     protected Qualification(){}
 
     public Qualification(Builder b) {
@@ -31,8 +27,6 @@ public class Qualification {
         this.nqfLevel = b.nqfLevel;
         this.institution = b.institution;
         this.major = b.major;
-        this.qualificationList = b.qualificationList;
-
     }
 
     public int getQualNo() {
@@ -51,10 +45,6 @@ public class Qualification {
         return major;
     }
 
-    public QualificationList getQualificationList() {
-        return qualificationList;
-    }
-
     @Override
     public String toString() {
         return "Qualification{" +
@@ -69,7 +59,6 @@ public class Qualification {
 
         private int qualNo, nqfLevel;
         private String institution, major;
-        private QualificationList qualificationList;
 
         public Builder setQualNo(int qualNo) {
             this.qualNo = qualNo;
@@ -91,17 +80,11 @@ public class Qualification {
             return this;
         }
 
-        public Builder setQualificationList(QualificationList qualificationList) {
-            this.qualificationList = qualificationList;
-            return this;
-        }
-
         public Builder copy(Qualification q) {
             this.qualNo = q.qualNo;
             this.nqfLevel = q.nqfLevel;
             this.institution = q.institution;
             this.major = q.major;
-            this.qualificationList = q.qualificationList;
 
             return this;
         }

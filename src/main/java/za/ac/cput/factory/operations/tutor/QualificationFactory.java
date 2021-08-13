@@ -2,7 +2,6 @@ package za.ac.cput.factory.operations.tutor;
 
 
 import za.ac.cput.entity.operations.tutor.Qualification;
-import za.ac.cput.entity.operations.tutor.QualificationList;
 
 /**
  * Factory class for creating Qualifications
@@ -14,15 +13,13 @@ public class QualificationFactory {
     public static Qualification createQualification(int qualNo,
                                                     int nqfLevel,
                                                     String institution,
-                                                    String major,
-                                                    QualificationList qualificationList){
+                                                    String major){
 
         Qualification qualification = new Qualification.Builder()
                 .setQualNo(qualNo)
                 .setNqfLevel(nqfLevel)
                 .setInstitution(institution)
                 .setMajor(major)
-                .setQualificationList(qualificationList)
                 .build();
 
         return qualification;
