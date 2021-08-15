@@ -20,7 +20,13 @@ public class TutorPostController {
 
     @PostMapping("/createTutorPost/")
     public TutorPost createTutorPost(@RequestBody TutorPost input) {
-        return this.tutorPostService.create(input);
+
+        TutorPost newTutorPost = new TutorPost.Builder()
+                .setPostNo(input.getPostNo())
+                .setTutorId(input.getTutorId())
+                .build();
+
+        return this.tutorPostService.create(newTutorPost);
     }
 
     @GetMapping("/findTutorPost/{id}")
@@ -32,7 +38,12 @@ public class TutorPostController {
 
         if (this.tutorPostService.checkInstance(id)) {
 
-            return this.tutorPostService.create(input);
+            TutorPost newTutorPost = new TutorPost.Builder()
+                    .setPostNo(input.getPostNo())
+                    .setTutorId(input.getTutorId())
+                    .build();
+
+            return this.tutorPostService.create(newTutorPost);
         } else
             return null;
     }

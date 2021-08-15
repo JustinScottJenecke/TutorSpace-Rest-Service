@@ -1,9 +1,6 @@
 package za.ac.cput.entity.operations.tutor;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 /**
  * POJO for Qualification objects
@@ -14,6 +11,7 @@ import javax.persistence.ManyToOne;
 public class Qualification {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int qualNo;
 
     private int nqfLevel;

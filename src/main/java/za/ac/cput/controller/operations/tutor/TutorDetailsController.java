@@ -19,7 +19,14 @@ public class TutorDetailsController {
 
     @PostMapping("/createTutorDetails/")
     public TutorDetails createTutorDetails(@RequestBody TutorDetails input) {
-        return this.tutorDetailsService.create(input);
+
+        TutorDetails newTutorDetails = new TutorDetails.Builder()
+                .setEmploymentType(input.getEmploymentType())
+                .setTutorType(input.getTutorType())
+                .setStudentNo(input.getStudentNo())
+                .build();
+
+        return this.tutorDetailsService.create(newTutorDetails);
     }
 
     @GetMapping("/findTutorDetails/{id}")
@@ -31,7 +38,13 @@ public class TutorDetailsController {
 
         if (this.tutorDetailsService.checkInstance(id)) {
 
-            return this.tutorDetailsService.create(input);
+            TutorDetails newTutorDetails = new TutorDetails.Builder()
+                    .setEmploymentType(input.getEmploymentType())
+                    .setTutorType(input.getTutorType())
+                    .setStudentNo(input.getStudentNo())
+                    .build();
+
+            return this.tutorDetailsService.create(newTutorDetails);
         } else
             return null;
     }

@@ -1,6 +1,8 @@
 package za.ac.cput.entity.operations.tutor;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 /**
@@ -12,6 +14,7 @@ import javax.persistence.Id;
 public class TutorDetails {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int tutorDetailsId;
 
     private String employmentType, tutorType;

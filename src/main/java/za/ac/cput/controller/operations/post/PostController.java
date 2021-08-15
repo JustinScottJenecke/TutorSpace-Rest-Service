@@ -21,7 +21,14 @@ public class PostController {
 
     @PostMapping("/createPost/")
     public Post createPost(@RequestBody Post input) {
-        return this.postService.create(input);
+
+        Post newPost = new Post.Builder()
+                .setMajor(input.getMajor())
+                .setSubject(input.getSubject())
+                .setTopic(input.getTopic())
+                .build();
+
+        return this.postService.create(newPost);
     }
 
     @GetMapping("/findPost/{id}")
@@ -33,7 +40,13 @@ public class PostController {
 
         if (this.postService.checkInstance(id)) {
 
-            return this.postService.create(input);
+            Post newPost = new Post.Builder()
+                    .setMajor(input.getMajor())
+                    .setSubject(input.getSubject())
+                    .setTopic(input.getTopic())
+                    .build();
+
+            return this.postService.create(newPost);
         } else
             return null;
     }

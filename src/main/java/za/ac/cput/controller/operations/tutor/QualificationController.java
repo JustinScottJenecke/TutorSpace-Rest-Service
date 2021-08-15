@@ -18,9 +18,17 @@ public class QualificationController {
     @Autowired
     QualificationService qualificationService;
 
-    @PostMapping("/createQualification/")
+    @PostMapping("/createQualification")
     public Qualification createQualification(@RequestBody Qualification input) {
-        return this.qualificationService.create(input);
+
+        Qualification newQualification = new Qualification.Builder()
+                .setInstitution(input.getInstitution())
+                .setMajor(input.getMajor())
+                .setNqfLevel(input.getNqfLevel())
+                .setTutor(input.getTutor())
+                .build();
+
+        return this.qualificationService.create(newQualification);
     }
 
     @GetMapping("/findQualification/{id}")
@@ -32,10 +40,18 @@ public class QualificationController {
 
         if (this.qualificationService.checkInstance(id)) {
 
-            return this.qualificationService.create(input);
+            Qualification newQualification = new Qualification.Builder()
+                    .setInstitution(input.getInstitution())
+                    .setMajor(input.getMajor())
+                    .setNqfLevel(input.getNqfLevel())
+                    .setTutor(input.getTutor())
+                    .build();
+
+            return this.qualificationService.create(newQualification);
         } else
             return null;
     }
+
 
     @DeleteMapping("/deleteQualification/{id}")
     public boolean deleteQualification(@PathVariable int id){
