@@ -11,20 +11,24 @@ public class TutorPostService {
     @Autowired
     private ITutorPostRepository tutorPostRepository;
 
-    public void create(TutorPost tutorPost) {
-        this.tutorPostRepository.save(tutorPost);
+    public TutorPost create(TutorPost tutorPost) {
+        return this.tutorPostRepository.save(tutorPost);
     }
 
     public TutorPost read(int id){
         return this.tutorPostRepository.findById(id).orElseGet(null);
     }
 
-    public void update(TutorPost tutorPost) {
-        this.tutorPostRepository.save(tutorPost);
+    public TutorPost update(TutorPost tutorPost) {
+        return this.tutorPostRepository.save(tutorPost);
     }
 
     public void delete(int id) {
         this.tutorPostRepository.deleteById(id);
+    }
+
+    public boolean checkInstance(int id) {
+        return this.tutorPostRepository.existsById(id);
     }
 
 }

@@ -11,20 +11,24 @@ public class PostService {
     @Autowired
     private IPostRepository postRepository;
 
-    public void create(Post post) {
-        this.postRepository.save(post);
+    public Post create(Post post) {
+        return this.postRepository.save(post);
     }
 
     public Post read(int id) {
         return this.postRepository.findById(id).orElseGet(null);
     }
 
-    public void update(Post post) {
-        this.postRepository.save(post);
+    public Post update(Post post) {
+        return this.postRepository.save(post);
     }
 
     public void delete(int id) {
         this.postRepository.deleteById(id);
+    }
+
+    public boolean checkInstance(int id) {
+        return this.postRepository.existsById(id);
     }
 
 }

@@ -11,19 +11,23 @@ public class QualificationService {
     @Autowired
     private IQualificationRepository qualificationRepository;
 
-    public void create(Qualification ql) {
-        this.qualificationRepository.save(ql);
+    public Qualification create(Qualification ql) {
+        return this.qualificationRepository.save(ql);
     }
 
     public Qualification read(int id) {
         return this.qualificationRepository.findById(id).orElseGet(null);
     }
 
-    public void update(Qualification ql) {
-        this.qualificationRepository.save(ql);
+    public Qualification update(Qualification ql) {
+        return this.qualificationRepository.save(ql);
     }
 
     public void delete(int id) {
         this.qualificationRepository.deleteById(id);
+    }
+
+    public boolean checkInstance(int id) {
+        return this.qualificationRepository.existsById(id);
     }
 }
