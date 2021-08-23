@@ -9,7 +9,7 @@ import javax.persistence.Id;
  * Aggregate-root concrete class for TutorPosts
  * Author: Justin Scott Jenecke
  */
-
+/*
 @Entity
 public class TutorPost {
 
@@ -82,4 +82,4 @@ public class TutorPost {
             return new TutorPost(this);
         }
     }
-}
+}*/

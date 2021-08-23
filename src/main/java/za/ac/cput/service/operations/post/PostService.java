@@ -5,6 +5,10 @@ import org.springframework.stereotype.Service;
 import za.ac.cput.entity.operations.post.Post;
 import za.ac.cput.repository.operations.post.IPostRepository;
 
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 @Service
 public class PostService {
 
@@ -29,6 +33,11 @@ public class PostService {
 
     public boolean checkInstance(int id) {
         return this.postRepository.existsById(id);
+    }
+
+    public List<Post> getAll(){
+        return this.postRepository.findAll();
+
     }
 
 }

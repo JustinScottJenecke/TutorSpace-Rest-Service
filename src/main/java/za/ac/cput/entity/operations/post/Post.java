@@ -1,9 +1,9 @@
 package za.ac.cput.entity.operations.post;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import org.springframework.web.util.TagUtils;
+import za.ac.cput.entity.operations.tutor.Tutor;
+
+import javax.persistence.*;
 
 /**
  * Entity concrete class for Post
@@ -17,6 +17,9 @@ public class Post {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int postNo;
 
+    @ManyToOne
+    private Tutor tutor;
+
     private String major, subject, topic;
 
     protected Post(){}
@@ -27,6 +30,7 @@ public class Post {
         this.major = b.major;
         this.subject = b.subject;
         this.topic = b.topic;
+        this.tutor = b.tutor;
     }
 
     public int getPostNo() {
@@ -45,6 +49,10 @@ public class Post {
         return topic;
     }
 
+    public Tutor getTutor() {
+        return tutor;
+    }
+
     @Override
     public String toString() {
         return "Post{" +
@@ -58,6 +66,7 @@ public class Post {
     public static class Builder {
 
         private int postNo;
+        private Tutor tutor;
         private String major, subject, topic;
 
         public Builder setPostNo(int postNo) {
@@ -80,11 +89,17 @@ public class Post {
             return this;
         }
 
+        public Builder setTutor(Tutor tutor) {
+            this.tutor = tutor;
+            return this;
+        }
+
         public Builder copy (Post p) {
             this.postNo = p.postNo;
             this.major = p.major;
             this.subject = p.subject;
             this.topic = p.topic;
+            this.tutor = p.tutor;
 
             return this;
         }

@@ -1,14 +1,14 @@
 package za.ac.cput.factoryTest.operations.post;
-
+/*
 import org.junit.jupiter.api.Test;
 import za.ac.cput.entity.operations.post.Post;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-/**
+/
  * Factory test class for testing creation of Posts
  * Author: Justin Scott Jenecke
- */
+
 
 class PostFactoryTest {
 
@@ -29,4 +29,4 @@ class PostFactoryTest {
 
 
     }
-}
+}*/

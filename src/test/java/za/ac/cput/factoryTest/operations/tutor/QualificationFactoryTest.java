@@ -1,27 +1,36 @@
 package za.ac.cput.factoryTest.operations.tutor;
-
+/*
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import za.ac.cput.entity.operations.tutor.Qualification;
 import za.ac.cput.entity.operations.tutor.Tutor;
+import za.ac.cput.entity.operations.tutor.TutorDetails;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
-/**
  * Factory test class for testing creation of Qualifications
  * Author: Justin Scott Jenecke
- */
+
 
 class QualificationFactoryTest {
 
     Tutor tutor;
+    TutorDetails tutorDetails;
 
     @BeforeEach
     void setup(){
+
+        tutorDetails = new TutorDetails.Builder()
+                .setTutorDetailsId(101)
+                .setEmploymentType("Part-Time")
+                .setStudentNo(102)
+                .setTutorType("Alumni")
+                .build();
+
          tutor = new Tutor.Builder()
                 .setTutorId(101)
-                .setTutorDetailsId(201)
+                .setTutorDetailsId(tutorDetails)
                 .setQualifications(null)
                 .build();
     }
@@ -45,4 +54,4 @@ class QualificationFactoryTest {
         assertEquals(101, qualification.getTutor().getTutorId());
 
     }
-}
+}*/

@@ -1,6 +1,7 @@
 package za.ac.cput.factory.operations.post;
 
 import za.ac.cput.entity.operations.post.Post;
+import za.ac.cput.entity.operations.tutor.Tutor;
 
 /**
  * Factory class for creating Posts
@@ -12,13 +13,15 @@ public class PostFactory {
     public static Post createPostFactory(int postNo,
                                          String major,
                                          String subject,
-                                         String topic){
+                                         String topic,
+                                         Tutor tutor){
 
         Post post = new Post.Builder()
                 .setPostNo(postNo)
                 .setMajor(major)
                 .setSubject(subject)
                 .setTopic(topic)
+                .setTutor(tutor)
                 .build();
 
         return post;

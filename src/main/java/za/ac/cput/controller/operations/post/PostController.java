@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RestController;
 import za.ac.cput.entity.operations.post.Post;
 import za.ac.cput.service.operations.post.PostService;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/tutorspace/api/v1/post/")
 public class PostController {
@@ -33,6 +35,10 @@ public class PostController {
 
     @GetMapping("/findPost/{id}")
     public Post getPost(@PathVariable int id) {return this.postService.read(id);
+    }
+
+    @GetMapping("/getPosts")
+    public List<Post> getAllPosts() {return this.postService.getAll();
     }
 
     @PutMapping ("/updatePost/{id}")

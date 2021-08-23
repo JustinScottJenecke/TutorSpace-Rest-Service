@@ -1,14 +1,14 @@
 package za.ac.cput.factoryTest.operations.tutor;
-
+/*
 import org.junit.jupiter.api.Test;
 import za.ac.cput.entity.operations.tutor.TutorDetails;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-/**
+/
  * Factory test class for testing creation of TutorDetails
  * Author: Justin Scott Jenecke
- */
+
 
 class TutorDetailsFactoryTest {
 
@@ -27,4 +27,4 @@ class TutorDetailsFactoryTest {
         assertEquals(102, tutorDetails.getStudentNo());
         assertEquals("Alumni", tutorDetails.getTutorType());
     }
-}
+}*/

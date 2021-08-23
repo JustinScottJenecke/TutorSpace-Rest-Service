@@ -1,5 +1,5 @@
 package za.ac.cput.controller.operations.post;
-
+/*
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import za.ac.cput.entity.operations.post.TutorPost;
@@ -54,3 +54,4 @@ public class TutorPostController {
         return !this.tutorPostService.checkInstance(id);
     }
 }
+*/
