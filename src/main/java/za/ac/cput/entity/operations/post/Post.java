@@ -18,6 +18,7 @@ public class Post {
     private int postNo;
 
     @ManyToOne
+    @JoinColumn(name = "tutor_id")
     private Tutor tutor;
 
     private String major, subject, topic;

@@ -21,10 +21,10 @@ public class Tutor {
     @OneToOne
     private TutorDetails tutorDetailsId;
 
-    @OneToMany(mappedBy = "tutor", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "tutor", fetch = FetchType.LAZY)
     private Set <Qualification> qualifications;
 
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "tutor", fetch = FetchType.LAZY)
     private List<Post> posts;
 
     protected Tutor(){}

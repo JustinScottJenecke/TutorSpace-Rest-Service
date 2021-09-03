@@ -1,5 +1,5 @@
 package za.ac.cput.factoryTest.operations.tutor;
-/*
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import za.ac.cput.entity.operations.tutor.Qualification;
@@ -11,10 +11,10 @@ import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-
+/**
  * Factory test class for testing creation of Tutors
  * Author: Justin Scott Jenecke
-
+**/
 
 class TutorFactoryTest {
 
@@ -48,4 +48,4 @@ class TutorFactoryTest {
         assertEquals(0, tutor.getQualifications().size());
 
     }
-}*/
+}
