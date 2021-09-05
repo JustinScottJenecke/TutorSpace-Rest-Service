@@ -14,10 +14,10 @@ public class TutorController {
 
     @RequestMapping("/")
     public String greet(){
-        return "Hello Tutor!";
+        return "/createTutor - /findTutor/{id} - /updateTutor/{id} - /deleteTutor/{id}";
     }
 
-    @PostMapping("/createTutor/")
+    @PostMapping("/createTutor")
     public Tutor createTutor(@RequestBody Tutor tutor) {
         Tutor newTutor = new Tutor.Builder()
                 .setTutorId(tutor.getTutorId())
@@ -61,7 +61,7 @@ public class TutorController {
             return null;*/
     }
 
-    @DeleteMapping("/deleteId/{id}")
+    @DeleteMapping("/deleteTutor/{id}")
     public boolean deleteTutor(@PathVariable int id){
         this.tutorService.delete(id);
         return !this.tutorService.checkInstance(id);

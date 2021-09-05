@@ -6,42 +6,50 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import za.ac.cput.entity.operations.post.Post;
 import za.ac.cput.service.operations.post.PostService;
+import za.ac.cput.service.operations.tutor.TutorService;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/tutorspace/api/v1/post/")
+@RequestMapping("/tutorspace/api/v1/post")
 public class PostController {
+
+    @Autowired
+    private PostService postService;
+    @Autowired
+    private TutorService tutorService;
 
     @RequestMapping("/")
     public String greet(){
-        return "Hello Post!";
+        return "/tutorspace/api/v1/post/ - create{id} - read{id} - update - delete{id}";
     }
 
-    @Autowired
-    PostService postService;
+    @PostMapping("/create/{tutorId}")
+    public Post createPost(@RequestBody Post input, @PathVariable int tutorId) throws RuntimeException {
 
-    @PostMapping("/createPost/")
-    public Post createPost(@RequestBody Post input) {
+        if (this.tutorService.checkInstance(tutorId)) {
 
-        Post newPost = new Post.Builder()
-                .setMajor(input.getMajor())
-                .setSubject(input.getSubject())
-                .setTopic(input.getTopic())
-                .build();
+            Post newPost = new Post.Builder()
+                    .setMajor(input.getMajor())
+                    .setSubject(input.getSubject())
+                    .setTopic(input.getTopic())
+                    .setTutor(this.tutorService.read(tutorId))
+                    .build();
 
-        return this.postService.create(newPost);
+            return this.postService.create(newPost);
+        } else
+            throw new RuntimeException("no valid Id or tutor is non-existent at Id: " + tutorId);
     }
 
-    @GetMapping("/findPost/{id}")
+    @GetMapping("/find/{id}")
     public Post getPost(@PathVariable int id) {return this.postService.read(id);
     }
 
-    @GetMapping("/getPosts")
+    @GetMapping("/getAll")
     public List<Post> getAllPosts() {return this.postService.getAll();
     }
 
-    @PutMapping ("/updatePost/{id}")
+    @PutMapping ("/update/{id}")
     public Post updatePost(@RequestBody Post input, @PathVariable int id){
 
         if (this.postService.checkInstance(id)) {
@@ -52,12 +60,13 @@ public class PostController {
                     .setTopic(input.getTopic())
                     .build();
 
-            return this.postService.create(newPost);
+            //return this.postService.create(newPost);
+            return this.postService.update(newPost);
         } else
             return null;
     }
 
-    @DeleteMapping("/deletePost/{id}")
+    @DeleteMapping("/delete/{id}")
     public boolean deletePost(@PathVariable int id){
         this.postService.delete(id);
         return !this.postService.checkInstance(id);
