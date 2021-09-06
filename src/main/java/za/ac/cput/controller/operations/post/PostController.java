@@ -39,7 +39,7 @@ public class PostController {
 
             return this.postService.create(newPost);
         } else
-            throw new RuntimeException("no valid Id or tutor is non-existent at Id: " + tutorId);
+            throw new RuntimeException("Error 404: no valid Id or tutor is non-existent at Id: " + tutorId);
     }
 
     @GetMapping("/find/{id}")
