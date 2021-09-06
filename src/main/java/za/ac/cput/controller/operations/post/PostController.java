@@ -8,6 +8,7 @@ import za.ac.cput.entity.operations.post.Post;
 import za.ac.cput.service.operations.post.PostService;
 import za.ac.cput.service.operations.tutor.TutorService;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -45,8 +46,16 @@ public class PostController {
     public Post getPost(@PathVariable int id) {return this.postService.read(id);
     }
 
-    @GetMapping("/getAll")
-    public List<Post> getAllPosts() {return this.postService.getAll();
+    @GetMapping("/getAllById/{tutorId}")
+    public List<Post> getAllPosts(@PathVariable int tutorId) {
+        List<Post> postList = this.postService.getAll();
+        List<Post> resultSet = new ArrayList<>();
+
+        for (Post p: postList) {
+            if (p.getTutor().getTutorId() == tutorId)
+                resultSet.add(p);
+        }
+        return resultSet;
     }
 
     @PutMapping ("/update/{id}")
