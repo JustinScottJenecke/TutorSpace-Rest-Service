@@ -20,23 +20,7 @@ public class TutorDetailsController {
     @PostMapping("/createTutorDetails/")
     public TutorDetails createTutorDetails(@RequestBody TutorDetails input) {
 
-        TutorDetails newTutorDetails = new TutorDetails.Builder()
-                .setEmploymentType(input.getEmploymentType())
-                .setTutorType(input.getTutorType())
-                .setStudentNo(input.getStudentNo())
-                .build();
-
-        return this.tutorDetailsService.create(newTutorDetails);
-    }
-
-    @GetMapping("/findTutorDetails/{id}")
-    public TutorDetails getTutorDetails(@PathVariable int id) {return this.tutorDetailsService.read(id);
-    }
-
-    @PutMapping ("/updateTutorDetails/{id}")
-    public TutorDetails updateTutorDetails(@RequestBody TutorDetails input, @PathVariable int id){
-
-        if (this.tutorDetailsService.checkInstance(id)) {
+        if (input.getTutor() != null) {
 
             TutorDetails newTutorDetails = new TutorDetails.Builder()
                     .setEmploymentType(input.getEmploymentType())
@@ -45,8 +29,24 @@ public class TutorDetailsController {
                     .build();
 
             return this.tutorDetailsService.create(newTutorDetails);
+
         } else
-            return null;
+            throw new RuntimeException("Bad transaction, tutor is null so details cannot be created/added");
+    }
+
+    @GetMapping("/findTutorDetails/{id}")
+    public TutorDetails getTutorDetails(@PathVariable int id) {return this.tutorDetailsService.read(id);
+    }
+
+    @PutMapping ("/updateTutorDetails")
+    public TutorDetails updateTutorDetails(@RequestBody TutorDetails input){
+
+            TutorDetails newTutorDetails = new TutorDetails.Builder()
+                    .setEmploymentType(input.getEmploymentType())
+                    .setTutorType(input.getTutorType())
+                    .setStudentNo(input.getStudentNo())
+                    .build();
+            return this.tutorDetailsService.create(newTutorDetails);
     }
 
     @DeleteMapping("/deleteDetails/{id}")
